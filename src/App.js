@@ -47,7 +47,8 @@ function App() {
   const context = useContext(AppContext);
 
   const onSubmit = () => {
-    console.log(context);
+    const output = { formInfo: context.formInfo, questions: context.QuestionArr };
+    console.log(output);
   };
 
   return (
@@ -62,7 +63,7 @@ function App() {
         <div>
           <FormTitle />
           <hr style={{ margin: "12px 0" }} />
-          {QuestionArr && QuestionArr.map((el) => <Question type={el.type} key={el.id} id={el.id} />)}
+          {QuestionArr && QuestionArr.map((el) => <Question type={el.type} key={el.id} id={el.id} options={el.options} />)}
 
           <div style={{ display: "flex", justifyContent: "center" }}>
             <SubmitButton onClick={onSubmit}>Submit</SubmitButton>

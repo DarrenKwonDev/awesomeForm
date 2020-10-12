@@ -26,13 +26,13 @@ function TextArea({ initialValue = "", placeholder = "", fontSize = 16, belongin
     (e) => {
       settext(e.target.value);
 
-      const target = context.QuestionArr.filter((item) => item.id === id);
+      const target = context.QuestionArr.filter((item) => item.id === id)[0];
 
       if (id !== "form") {
         if (belonging === "title") {
-          target[0].title = e.target.value;
+          target.title = e.target.value;
         } else if (belonging === "detail") {
-          target[0].detail = e.target.value;
+          target.detail = e.target.value;
         }
       } else {
         // id가 form인 경우 (form의 제목, 설명에 대한 수정)

@@ -7,7 +7,7 @@ import AnswerQuestion from "../Molecule/AnswerQuestion";
 import SingleChoice from "../Molecule/SingleChoice";
 import MultiChoice from "../Molecule/MultiChoice";
 
-function Question({ type, id }) {
+function Question({ type, id, options }) {
   const [QuestionType, setQuestionType] = useState(type);
   const context = useContext(AppContext);
 
@@ -20,20 +20,19 @@ function Question({ type, id }) {
     [QuestionType]
   );
 
+  // filter로 삭제
   const onDeleteClick = () => {
     const checkBeforeDelete = confirm("are you sure you want to delete?");
     if (checkBeforeDelete) {
-      // filter로 삭제
       const deletedRersult = context.QuestionArr.filter((item) => item.id !== id);
       context.setQuestionArr(deletedRersult);
     }
   };
 
-  const onPlusClick = (e) => {
-    console.log(e.target.parentNode);
-    console.log(e.target.parentNode.parentNode.classList);
-    console.log(e.target.parentNode.dataset);
-    console.log(e.target.parentNode.parentNode.dataset);
+  // map으로 특정 객체를 수정. 불변성에 유의할 것
+  const onPlusClick = () => {
+    const modifiedArray = context.QuestionArr.map((item) => (item.id === id ? { ...item, options: [...item.options, { optionId: Date.now() + Math.random(), text: "" }] } : item));
+    context.setQuestionArr(modifiedArray);
   };
 
   return (
@@ -44,9 +43,9 @@ function Question({ type, id }) {
       </div>
 
       {/* render diffenct jsx chunk based on type */}
-      {QuestionType === "MultiChoice" && <MultiChoice />}
+      {QuestionType === "MultiChoice" && <MultiChoice id={id} options={options} />}
 
-      {QuestionType === "SingleChoice" && <SingleChoice />}
+      {QuestionType === "SingleChoice" && <SingleChoice id={id} options={options} />}
 
       {QuestionType === "ShortAnswer" && <AnswerQuestion placeholder="단답형 텍스트" belonging="answer" id={id} />}
 
