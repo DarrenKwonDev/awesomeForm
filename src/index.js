@@ -2,10 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { ThemeProvider } from "styled-components";
-
-const theme = {
-  color: "black",
-};
+import theme from "./Style/theme";
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
