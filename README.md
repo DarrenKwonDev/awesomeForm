@@ -24,10 +24,10 @@ npm run start (webpack && webpack server)
    - themeProvider를 활용한 디자인 시스템
 5. mobile-first!
 6. atomic design (atom => molecule => components => pages)의 흐름
-   - https://darrengwon.tistory.com/759
+   - https://darrengwon.tistory.c
 
 
-## lessons learned  
+## lessons learned 
 
 1. API first
   - Schma부터 시작해서 하향식 접근을 했어야 했는데, 마구잡이로 하다보니 Schema 부분이 상당히 지저분해졌다  
