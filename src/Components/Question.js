@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useContext } from "react";
+import { AppContext } from "../ContextApi";
 import TextArea from "../Atom/TextArea";
 import QuestionBox from "../Molecule/QuestionBox";
 
-function Question({ type }) {
-  const [QuestionType, setQuestionType] = useState(type);
+import AnswerQuestion from "../Molecule/AnswerQuestion";
+import SingleChoice from "../Molecule/SingleChoice";
+import MultiChoice from "../Molecule/MultiChoice";
 
-  const typeChange = (e) => {
-    setQuestionType(e.target.value);
-  };
+function Question({ type, id }) {
+  const [QuestionType, setQuestionType] = useState(type);
+  const context = useContext(AppContext);
+
+  const typeChange = useCallback(
+    (e) => {
+      setQuestionType(e.target.value);
+      const target = context.QuestionArr.filter((item) => item.id === id);
+      target[0].type = e.target.value;
+    },
+    [QuestionType]
+  );
 
   const onDeleteClick = (e) => {
+    // 아. ㅜㅜ class 어디갔니
     console.log(e.target.parentNode.className);
     console.log(e.target.parentNode.parentNode.className);
   };
@@ -24,9 +36,18 @@ function Question({ type }) {
   return (
     <QuestionBox>
       <div style={{ width: "100%" }}>
-        <TextArea placeholder="Question Text" fontSize={24} />
-        <TextArea placeholder="Question Describe" />
+        <TextArea placeholder="Question Text" fontSize={24} belonging="title" id={id} />
+        <TextArea placeholder="Question Describe" belonging="detail" id={id} />
       </div>
+
+      {/* render diffenct jsx chunk based on type */}
+      {QuestionType === "MultiChoice" && <MultiChoice />}
+
+      {QuestionType === "SingleChoice" && <SingleChoice />}
+
+      {QuestionType === "ShortAnswer" && <AnswerQuestion placeholder="단답형 텍스트" belonging="answer" id={id} />}
+
+      {QuestionType === "LongAnswer" && <AnswerQuestion placeholder="장문형 텍스트" belonging="answer" id={id} />}
 
       {/* bottom bar */}
       <div className="bottomIcons">

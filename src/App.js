@@ -3,7 +3,7 @@ import { AppContext } from "./ContextApi";
 import styled from "styled-components";
 import HeaderBox from "./Components/HeaderBox";
 import FormTitle from "./Components/FormTitle";
-// import Remocon from "./Components/Molecule/Remocon";
+import FAB from "./Components/FAB";
 import Question from "./Components/Question";
 import GlobalStyle from "./Style/GlobalStyle";
 
@@ -45,12 +45,16 @@ function App() {
   const { QuestionArr } = useContext(AppContext);
 
   const context = useContext(AppContext);
-  console.log(context);
+
+  const onSubmit = () => {
+    console.log(context);
+  };
+
   return (
     <>
       <GlobalStyle />
       <HeaderBox />
-      {/* <Remocon /> */}
+      <FAB />
 
       {/* 내용 */}
       <BodyWrapper>
@@ -58,15 +62,10 @@ function App() {
         <div>
           <FormTitle />
           <hr style={{ margin: "12px 0" }} />
-          {QuestionArr &&
-            QuestionArr.map((el) => (
-              <React.Fragment key={el.id}>
-                <Question type={el.type} data-id={el.id} id={el.id} />
-              </React.Fragment>
-            ))}
+          {QuestionArr && QuestionArr.map((el) => <Question type={el.type} key={el.id} id={el.id} />)}
 
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <SubmitButton>Submit</SubmitButton>
+            <SubmitButton onClick={onSubmit}>Submit</SubmitButton>
           </div>
         </div>
         <div className="rightBar"></div>

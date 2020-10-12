@@ -6,8 +6,8 @@ import FormInfoBox from "../Molecule/FormInfoBox";
 function FormTitle() {
   return (
     <FormInfoBox>
-      <TextArea placeholder={"Form Title"} fontSize={24} />
-      <TextArea placeholder={"Form Description"} />
+      <TextArea placeholder={"Form Title"} fontSize={24} belonging="title" id="form" />
+      <TextArea placeholder={"Form Description"} belonging="detail" id="form" />
     </FormInfoBox>
   );
 }
