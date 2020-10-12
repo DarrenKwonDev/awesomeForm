@@ -1,19 +1,19 @@
 {
   "name": "awesomeform",
   "version": "1.0.0",
-  "description": "awesomeform",
+  "description": "AwesomeForm made by DarrenKwon(anatomy1545@gmail.com)",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "start": "webpack && webpack server"
+    "start": "webpack && webpack serve"
   },
-  "author": "",
+  "author": "DarrenKwon(https://github.com/DarrenKwonDev)",
   "license": "ISC",
   "dependencies": {
     "dotenv": "8.2.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "styled-components": "5.2.0"
+    "styled-components": "^5.2.0",
+    "styled-reset": "^4.2.3"
   },
   "devDependencies": {
     "@babel/core": "7.11.6",
