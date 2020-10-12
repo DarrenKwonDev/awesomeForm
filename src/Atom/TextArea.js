@@ -33,8 +33,6 @@ function TextArea({ initialValue = "", placeholder = "", fontSize = 16, belongin
           target[0].title = e.target.value;
         } else if (belonging === "detail") {
           target[0].detail = e.target.value;
-        } else {
-          target[0].answer = e.target.value;
         }
       } else {
         // id가 form인 경우 (form의 제목, 설명에 대한 수정)

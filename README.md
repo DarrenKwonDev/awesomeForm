@@ -4,7 +4,13 @@ turnchat tech interview
 inspired on google form  
 <img src="public/favicon-96x96.png" alg="logo" />
 
-## how to start 
+## 시작시간/끝시간
+
+시작 시간 : 2020/10/12 오후 9:25  
+휴식 시간 : 2020/10/13 오전 1:10 ~ 1: 30  
+종료 시간 : 2020/10/13 오전 2:25
+
+## how to start   
 
 npm run start (webpack && webpack server)
 

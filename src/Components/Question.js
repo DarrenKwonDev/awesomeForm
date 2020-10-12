@@ -20,10 +20,13 @@ function Question({ type, id }) {
     [QuestionType]
   );
 
-  const onDeleteClick = (e) => {
-    // 아. ㅜㅜ class 어디갔니
-    console.log(e.target.parentNode.className);
-    console.log(e.target.parentNode.parentNode.className);
+  const onDeleteClick = () => {
+    const checkBeforeDelete = confirm("are you sure you want to delete?");
+    if (checkBeforeDelete) {
+      // filter로 삭제
+      const deletedRersult = context.QuestionArr.filter((item) => item.id !== id);
+      context.setQuestionArr(deletedRersult);
+    }
   };
 
   const onPlusClick = (e) => {
