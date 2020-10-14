@@ -27,6 +27,11 @@ npm run start (webpack && webpack server)
 6. atomic design (atom => molecule => components => pages)의 흐름
    - https://darrengwon.tistory.com/759
 
+## furthermore
+- [ ] Drag and Drop API  
+- [ ] Code-splitting  
+- [ ] immer  
+- [ ] webpack.config.js 연구(optimizer, loader ...)  
 
 ## lessons learned 
 

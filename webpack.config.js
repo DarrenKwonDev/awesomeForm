@@ -4,6 +4,8 @@ const webpack = require("webpack");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin"); // npm i -D html-webpack-plugin
 const ManifestPlugin = require("webpack-manifest-plugin"); // npm i -D webpack-manifest-plugin
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 const appSrc = path.resolve(__dirname, "src");
 const appHtml = path.resolve(__dirname, "public", "index.html");
@@ -56,6 +58,7 @@ module.exports = (webpackEnv) => {
           return { files: manifestFiles, entrypoints: entryFiles };
         },
       }),
+      new BundleAnalyzerPlugin(),
     ],
     entry: "./src/index.js",
     module: {
