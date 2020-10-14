@@ -19,6 +19,7 @@ npm run start (webpack && webpack server)
 1. no CRA  
    - webpack v4.42.0를 사용해보았습니다.
 2. Redux 대신 Context API를 사용해보았습니다.
+   - thunk, promise 등 부가적 기능이 불필요하여 의존성을 설치하는 것이 오히려 무거워질 수 있을 것이라 판단
 3. useCallback을 통한 일부 함수 최적화
 4. styled-components
    - themeProvider를 활용한 디자인 시스템
@@ -30,5 +31,9 @@ npm run start (webpack && webpack server)
 ## lessons learned 
 
 1. API first
-  - Schma부터 시작해서 하향식 접근을 했어야 했는데, 마구잡이로 하다보니 Schema 부분이 상당히 지저분해졌다  
+     - Schma부터 시작해서 하향식 접근을 했어야 했는데, 마구잡이로 하다보니 Schema 부분이 상당히 지저분해졌다  
 2. radio 컴포넌트를 분리해서 중복 선택이 가능하게 되었습니다. 수정하고 싶으나 제한 시간이 다 되었습니다.  
+
+## Review
+
+https://darrengwon.tistory.com/877  
