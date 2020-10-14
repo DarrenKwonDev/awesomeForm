@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import image from "../../public/image.jpg";
+import favicon from "../../public/favicon.ico";
 
 const StyledBox = styled.div`
   display: flex;
@@ -24,6 +26,8 @@ function HeaderBox() {
     <>
       <StyledBox>
         <div>Awesome Form</div>
+        <img src={favicon} />
+        {/* <img src={image} /> */}
       </StyledBox>
     </>
   );

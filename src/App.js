@@ -36,7 +36,8 @@ const SubmitButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+      0 3px 6px rgba(0, 0, 0, 0.23);
   }
 `;
 
@@ -47,9 +48,14 @@ function App() {
   const context = useContext(AppContext);
 
   const onSubmit = () => {
-    const output = { formInfo: context.formInfo, questions: context.QuestionArr };
+    const output = {
+      formInfo: context.formInfo,
+      questions: context.QuestionArr,
+    };
     console.log(output);
   };
+
+  console.log(process.env.REACT_APP_PORT);
 
   return (
     <>
@@ -63,7 +69,15 @@ function App() {
         <div>
           <FormTitle />
           <hr style={{ margin: "12px 0" }} />
-          {QuestionArr && QuestionArr.map((el) => <Question type={el.type} key={el.id} id={el.id} options={el.options} />)}
+          {QuestionArr &&
+            QuestionArr.map((el) => (
+              <Question
+                type={el.type}
+                key={el.id}
+                id={el.id}
+                options={el.options}
+              />
+            ))}
 
           <div style={{ display: "flex", justifyContent: "center" }}>
             <SubmitButton onClick={onSubmit}>Submit</SubmitButton>
