@@ -1,7 +1,7 @@
 # RingleForm  
 
 turnchat tech interview  
-inspired on google form  
+inspired by google form  
 <img src="public/favicon-96x96.png" alg="logo" />
 
 ## 시작시간/끝시간
@@ -36,7 +36,7 @@ npm run start (webpack && webpack server)
 ## lessons learned 
 
 1. API first
-     - Schma부터 시작해서 하향식 접근을 했어야 했는데, 마구잡이로 하다보니 Schema 부분이 상당히 지저분해졌다  
+     - Schema부터 시작해서 하향식 접근을 했어야 했는데, 마구잡이로 하다보니 Schema 부분이 상당히 지저분해졌다  
 2. radio 컴포넌트를 분리해서 중복 선택이 가능하게 되었습니다. 수정하고 싶으나 제한 시간이 다 되었습니다.  
 
 ## Review
