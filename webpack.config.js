@@ -4,8 +4,7 @@ const webpack = require("webpack");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin"); // npm i -D html-webpack-plugin
 const ManifestPlugin = require("webpack-manifest-plugin"); // npm i -D webpack-manifest-plugin
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 const appSrc = path.resolve(__dirname, "src");
 const appHtml = path.resolve(__dirname, "public", "index.html");
@@ -58,7 +57,7 @@ module.exports = (webpackEnv) => {
           return { files: manifestFiles, entrypoints: entryFiles };
         },
       }),
-      new BundleAnalyzerPlugin(),
+      // !isProd && new BundleAnalyzerPlugin(), // 개발모드일 때만 analyzer 사용
     ],
     entry: "./src/index.js",
     module: {
@@ -89,11 +88,7 @@ module.exports = (webpackEnv) => {
             },
             {
               loader: "file-loader",
-              exclude: [
-                /\.(js|mjs|jsx|ts|tsx)$/,
-                /\.html$/,
-                /\.json$/,
-              ],
+              exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
               options: {
                 outputPath: "static/media",
                 name: "[name].[hash:8].[ext]",
@@ -108,9 +103,7 @@ module.exports = (webpackEnv) => {
       type: isProd ? "filesystem" : "memory", // 개발시 memory, 배포시 filesystem 캐쉬
     },
     output: {
-      filename: isProd
-        ? "static/js/[name].[chunkhash:8].js"
-        : "static/js/bundle.js", // 번들한 결과물의 파일명
+      filename: isProd ? "static/js/[name].[chunkhash:8].js" : "static/js/bundle.js", // 번들한 결과물의 파일명
       path: path.join(__dirname, "build"), // 어디에 빌드 결과물을 둘 것인가
     },
     devServer: {

@@ -55,8 +55,6 @@ function App() {
     console.log(output);
   };
 
-  console.log(process.env.REACT_APP_PORT);
-
   return (
     <>
       <GlobalStyle />

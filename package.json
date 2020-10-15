@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack && webpack serve",
-    "test": "webpack-dev-server"
+    "deploy": "webpack && webpack serve --env.NODE_ENV=production"
   },
   "author": "DarrenKwon(https://github.com/DarrenKwonDev)",
   "license": "ISC",

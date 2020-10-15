@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useCallback, useRef, useContext } from "react";
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useRef,
+  useContext,
+} from "react";
 import styled from "styled-components";
 import { AppContext } from "../ContextApi";
 
@@ -17,7 +23,13 @@ const StyledTextArea = styled.textarea`
   }
 `;
 
-function TextArea({ initialValue = "", placeholder = "", fontSize = 16, belonging, id }) {
+function TextArea({
+  initialValue = "",
+  placeholder = "",
+  fontSize = 16,
+  belonging,
+  id,
+}) {
   const [text, settext] = useState(initialValue);
   const textareaRef = useRef(null);
   const context = useContext(AppContext);
@@ -26,7 +38,9 @@ function TextArea({ initialValue = "", placeholder = "", fontSize = 16, belongin
     (e) => {
       settext(e.target.value);
 
-      const target = context.QuestionArr.filter((item) => item.id === id)[0];
+      const target = context.QuestionArr.filter(
+        (el) => el.id === id
+      )[0];
 
       if (id !== "form") {
         if (belonging === "title") {
@@ -51,12 +65,19 @@ function TextArea({ initialValue = "", placeholder = "", fontSize = 16, belongin
   useEffect(() => {
     textareaRef.current.style.height = "auto";
     // 2px 안 더하면 옆에 스크롤 생김
-    textareaRef.current.style.height = textareaRef.current.scrollHeight + 2 + "px";
+    textareaRef.current.style.height =
+      textareaRef.current.scrollHeight + 2 + "px";
   }, [text]);
 
   return (
     <>
-      <StyledTextArea ref={textareaRef} value={text} onChange={textChange} placeholder={placeholder} fontSize={fontSize}></StyledTextArea>
+      <StyledTextArea
+        ref={textareaRef}
+        value={text}
+        onChange={textChange}
+        placeholder={placeholder}
+        fontSize={fontSize}
+      ></StyledTextArea>
     </>
   );
 }

@@ -31,14 +31,29 @@ function Question({ type, id, options }) {
 
   // map으로 특정 객체를 수정. 불변성에 유의할 것
   const onPlusClick = () => {
-    const modifiedArray = context.QuestionArr.map((item) => (item.id === id ? { ...item, options: [...item.options, { optionId: Date.now() + Math.random(), text: "" }] } : item));
+    const modifiedArray = context.QuestionArr.map((item) =>
+      item.id === id
+        ? {
+            ...item,
+            options: [
+              ...item.options,
+              { optionId: Date.now() + Math.random(), text: "" },
+            ],
+          }
+        : item
+    );
     context.setQuestionArr(modifiedArray);
   };
 
   return (
     <QuestionBox>
       <div style={{ width: "100%" }}>
-        <TextArea placeholder="Question Text" fontSize={24} belonging="title" id={id} />
+        <TextArea
+          placeholder="Question Text"
+          fontSize={24}
+          belonging="title"
+          id={id}
+        />
         <TextArea placeholder="Question Describe" belonging="detail" id={id} />
       </div>
 
@@ -47,9 +62,13 @@ function Question({ type, id, options }) {
 
       {QuestionType === "SingleChoice" && <SingleChoice id={id} options={options} />}
 
-      {QuestionType === "ShortAnswer" && <AnswerQuestion placeholder="단답형 텍스트" belonging="answer" id={id} />}
+      {QuestionType === "ShortAnswer" && (
+        <AnswerQuestion placeholder="단답형 텍스트" belonging="answer" id={id} />
+      )}
 
-      {QuestionType === "LongAnswer" && <AnswerQuestion placeholder="장문형 텍스트" belonging="answer" id={id} />}
+      {QuestionType === "LongAnswer" && (
+        <AnswerQuestion placeholder="장문형 텍스트" belonging="answer" id={id} />
+      )}
 
       {/* bottom bar */}
       <div className="bottomIcons">
@@ -59,7 +78,11 @@ function Question({ type, id, options }) {
           <option value="ShortAnswer">ShortAnswer</option>
           <option value="LongAnswer">LongAnswer</option>
         </select>
-        {QuestionType === "ShortAnswer" || QuestionType === "LongAnswer" ? "" : <i className="fas fa-plus-circle" onClick={onPlusClick}></i>}
+        {QuestionType === "ShortAnswer" || QuestionType === "LongAnswer" ? (
+          ""
+        ) : (
+          <i className="fas fa-plus-circle" onClick={onPlusClick}></i>
+        )}
         <i className="fas fa-trash-alt" onClick={onDeleteClick}></i>
       </div>
     </QuestionBox>

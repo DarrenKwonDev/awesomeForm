@@ -15,7 +15,11 @@ const StyledBox = styled.div`
 
   background-position: center center;
   background-size: cover;
-  background-image: linear-gradient(rgba(44, 89, 255, 0.75), rgba(44, 89, 255, 0.75)), url("image.jpg");
+  background-image: linear-gradient(
+      rgba(44, 89, 255, 0.75),
+      rgba(44, 89, 255, 0.75)
+    ),
+    url("image.jpg");
 
   font-size: ${(props) => props.theme.fontSizes.xxxl};
   font-weight: 600;

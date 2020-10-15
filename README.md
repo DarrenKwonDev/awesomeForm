@@ -1,8 +1,10 @@
 # RingleForm  
+<p align="center">
+   <img src="public/favicon-96x96.png" alg="logo" />
+</p>
 
-turnchat tech interview  
+Ringle && turnchat tech interview  
 inspired by google form  
-<img src="public/favicon-96x96.png" alg="logo" />
 
 ## 시작시간/끝시간
 
@@ -32,8 +34,9 @@ npm run start (webpack && webpack server)
 - [ ] Code-splitting  
 - [ ] immer  
 - [ ] webpack.config.js 연구(optimizer, loader ...)  
+- [ ] focus 잡힐 때마다 스타일링 주기  
 
-## lessons learned 
+## lessons learned  
 
 1. API first
      - Schema부터 시작해서 하향식 접근을 했어야 했는데, 마구잡이로 하다보니 Schema 부분이 상당히 지저분해졌다  
