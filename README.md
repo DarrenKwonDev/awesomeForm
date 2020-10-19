@@ -34,7 +34,7 @@ npm run start (webpack && webpack server)
 - [ ] Code-splitting  
 - [ ] immer  
 - [ ] webpack.config.js 연구(optimizer, loader ...)  
-- [ ] focus 잡힐 때마다 스타일링 주기  
+- [x] focus 잡힐 때마다 스타일링 주기  
 
 ## lessons learned  
 
