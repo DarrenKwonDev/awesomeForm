@@ -46,4 +46,4 @@ function Radio({ id, optionId }) {
   );
 }
 
-export default Radio;
+export default React.memo(Radio);

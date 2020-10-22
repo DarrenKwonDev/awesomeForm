@@ -17,11 +17,18 @@ function Check({ id, optionId }) {
 
   return (
     <label htmlFor={RadioInput}>
-      <StyledCheck type="checkbox" id={RadioInput} name={RadioInput} value={RadioInput} checked={isTrue} onChange={onClick} />
+      <StyledCheck
+        type="checkbox"
+        id={RadioInput}
+        name={RadioInput}
+        value={RadioInput}
+        checked={isTrue}
+        onChange={onClick}
+      />
       <input value={RadioInput} onChange={RadioInputChange}></input>
       <i className="fas fa-minus-square"></i>
     </label>
   );
 }
 
-export default Check;
+export default React.memo(Check);
