@@ -35,6 +35,7 @@ npm run start (webpack && webpack server)
 - [ ] immer  
 - [ ] webpack.config.js 연구(optimizer, loader ...)  
 - [x] focus 잡힐 때마다 스타일링 주기  
+- [x] 리렌더링 방지를 위한 React.memo
 
 ## lessons learned  
 

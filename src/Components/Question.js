@@ -89,4 +89,4 @@ function Question({ type, id, options }) {
   );
 }
 
-export default Question;
+export default React.memo(Question);
